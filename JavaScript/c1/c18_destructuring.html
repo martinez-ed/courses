@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destructuring</title>
+</head>
+<body>
+  <h1>Destructuring</h1>
+  <script>
+    const numbers = [1, 2, 3, 4, 5];
+    // Sin usar destructuring
+    let one = numbers[0],
+      two = numbers[1],
+      three = numbers[2],
+      four = numbers[3],
+      five = numbers[4];
+    console.log(one, two, three, four, five);
+    // Con uso de destructuring
+    const [one2, two2, three2, four2, five2] = numbers;
+    console.log('with destructuring:', one2, two2, three2, four2, five2);
+
+    const person = {
+      name: 'Ed',
+      lastName: 'Martínez',
+      age: 40
+    };
+    console.log(person.name, person.lastName, person.age);
+    // Con uso de destructuring
+    let {
+      name,
+      lastName,
+      age
+    } = person;
+    console.log('with destructuring:',name, lastName, age);
+  </script>
+</body>
+</html>

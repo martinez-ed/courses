@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herencia</title>
+</head>
+<body>
+  <h1>Herencia</h1>
+  <script>
+    // Función constructora
+    function Persona(nombre, apellido, altura) {
+      // Atributos
+      this.nombre = nombre;
+      this.apellido = apellido;
+      this.altura = altura;
+    }
+    // Prototype
+    // Métodos agregados al prototipo de la función constructora
+    Persona.prototype.saludar = function() {
+      console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y mido ${this.altura}`);
+    }
+
+    // HERENCIA PROTOTIPO
+    function Desarrollador(nombre, apellido, skills) {
+      this.super = Persona;
+      this.super(nombre, apellido);
+      this.skills = skills;
+    }
+    // Desarrollador esta heredando de Persona
+    // Asignar al prototipo de desarrollador una instancia de la función constructora persona
+    Desarrollador.prototype = new Persona();
+    // Constructor de Desarrollador
+    Desarrollador.prototype.constructor = Desarrollador;
+
+    // Sobreescribir el método saludar
+    Desarrollador.prototype.saludar = function() {
+      console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y tengo conocimiento de ${this.skills}`);
+    }
+
+    // Instanciar un objeto
+    let Ed = new Desarrollador('Ed', 'Martínez', 'JavaScript'),
+        Luis = new Desarrollador('Luis', 'García', 'PHP'),
+        Ana = new Desarrollador('Ana', 'Roncancio', 'Python');
+
+    console.log(Ed, Luis, Ana);
+
+    // Método saludar de Persona sobreescrito
+    Ed.saludar();
+    Luis.saludar();
+    Ana.saludar();
+  </script>
+</body>
+</html>

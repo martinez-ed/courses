@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototypes</title>
+</head>
+<body>
+  <h1>Prototypes</h1>
+  <script>
+    // POO
+    // Clases - Modelos a seguir
+    // Objetos - Instancias de clases
+      // Atributos - Propiedades o características de un objeto
+      // Métodos - Funciones o acciones que puede realizar un objeto
+    
+    // Función constructora
+    function Persona(nombre, apellido, altura) {
+      // Atributos
+      this.nombre = nombre;
+      this.apellido = apellido;
+      this.altura = altura;
+    }
+
+    // Prototype
+    // Métodos agregados al prototipo de la función constructora
+    Persona.prototype.saludar = function() {
+      console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y mido ${this.altura}`);
+    }
+    
+    // Instanciar un objeto
+    let Ed = new Persona('Ed', 'Martínez', 1.80),
+        Luis = new Persona('Luis', 'García', 1.74),
+        Ana = new Persona('Ana', 'Roncancio', 1.60);
+
+    console.log(Ed, Luis, Ana);
+
+    // Método saludar
+    Ed.saludar();
+    Luis.saludar();
+    Ana.saludar();
+  </script>
+</body>
+</html>

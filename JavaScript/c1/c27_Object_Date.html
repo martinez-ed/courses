@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Date</title>
+</head>
+<body>
+  <h1>Object Date</h1>
+  <script>
+    console.log(Date());
+    
+    // Constructor Date
+    let fecha = new Date();
+    console.log(fecha);
+    console.log('Día del mes:', fecha.getDate());
+    
+    // D = 0, L = 1, M = 2, M = 3, J = 4, V = 5, S = 6
+    console.log('Día de la semana:', fecha.getDay());
+    
+    // Enero = 0, Febrero = 1, Marzo = 2, Abril = 3, Mayo = 4, Junio = 5, Julio = 6, Agosto = 7, Septiembre = 8, Octubre = 9, Noviembre = 10, Diciembre = 11
+    console.log('Mes del año:', fecha.getMonth());
+    
+    console.log('El año:', fecha.getFullYear());
+    
+    console.log('Horas:', fecha.getHours());
+    console.log('Minutos:', fecha.getMinutes());
+    console.log('Segundos:', fecha.getSeconds());
+    console.log('Milisegundos:', fecha.getMilliseconds());
+
+    // Formato de fecha
+    console.log(fecha.toString());
+    console.log(fecha.toDateString()); // Día, mes y año
+    console.log(fecha.toLocaleString()); //Fecha y hora
+    console.log(fecha.toLocaleDateString()); // Fecha
+    console.log(fecha.toLocaleTimeString()); // Hora
+
+    console.log(fecha.getTimezoneOffset()); // Zona horaria
+
+    // FECHA TIMESTAMP
+    // Timestamp = segundos desde 1 de enero de 1970
+    // Sirve para guardar la fecha en una variable y luego compararla con otra o colocarla en una base de datos.
+    console.log(fecha.getTime());
+    console.log(Date.now());
+  </script>
+</body>
+</html>

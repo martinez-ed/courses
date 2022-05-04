@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async - Await</title>
+</head>
+<body>
+    <h1>Async - Await</h1>
+    <script>
+        function scuarePromise(value) {
+            if (typeof value !== 'number') {
+                return Promise.reject(`Error, el valor ${value} ingresado no es un número`);
+            }
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve({
+                        value,
+                        result: value * value
+                    });
+                }, 0 | Math.random() * 1000);
+            });
+        }
+
+        async function asyncDeclared () {
+            try {
+                console.log('Begin Async Function - declared');
+                let obj = await scuarePromise(2);
+                console.log(`El cuadrado de ${obj.value} es ${obj.result}`);
+                obj = await scuarePromise(3);
+                console.log(`El cuadrado de ${obj.value} es ${obj.result}`);
+                obj = await scuarePromise(4);
+                console.log(`El cuadrado de ${obj.value} es ${obj.result}`);
+                obj = await scuarePromise(5);
+                console.log(`El cuadrado de ${obj.value} es ${obj.result}`);
+                console.log('End Async Function - declared');
+            } catch (err) {
+                console.error(err);
+            }
+        }
+        asyncDeclared();
+
+        const asyncExpresed = async () => {
+            try {
+                console.log('Begin Async Function - expressed');
+                let obj = await scuarePromise(6);
+                console.log(`El cuadrado de ${obj.value} es ${obj.result}`);
+                obj = await scuarePromise(7);
+                console.log(`El cuadrado de ${obj.value} es ${obj.result}`);
+                obj = await scuarePromise(8);
+                console.log(`El cuadrado de ${obj.value} es ${obj.result}`);
+                obj = await scuarePromise(9);
+                console.log(`El cuadrado de ${obj.value} es ${obj.result}`);
+                console.log('End Async Function - expressed');
+            } catch (err) {
+                console.error(err);
+            }
+        }
+        asyncExpresed();
+    </script>
+</body>
+</html>

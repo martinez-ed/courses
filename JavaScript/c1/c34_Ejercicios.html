@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios</title>
+</head>
+<body>
+  <h1>Training</h1>
+  <script>
+    // Ejercicio 1
+    // Función que cuente el número de caracteres de una cadena
+    /* function countCharacters(cadena = "") {
+      if (!cadena) {
+        console.warn("La cadena no puede estar vacía");
+      } else {
+        console.info(`La cadena "${cadena}" tiene ${cadena.length} caracteres`);
+      }
+    } */
+    const countCharacters = (cadena = '') => 
+      (!cadena) 
+        ? console.warn("La cadena no puede estar vacía") 
+        : console.info(`La cadena "${cadena}" tiene ${cadena.length} caracteres`);
+    countCharacters();
+    countCharacters("Hello world");
+
+    // Ejercicio 2
+    // Función que devuelva el texto recortado según el número de caracteres indicado
+    const cutText = (text = '', numCharacters = undefined) =>
+      (!text)
+        ? console.warn('No ingresaste el texto')
+        : (numCharacters === undefined)
+          ? console.warn('No ingresaste el número de caracteres')
+          : console.info(text.slice(0, numCharacters));
+    cutText();
+    cutText("Hello world");
+    cutText('', 9);
+    cutText("Hello world", 9);
+
+    // Ejercicio 3
+    // Función que devuelva en un array el texto separado por cierto caracter asignado
+    const textArray = (text = '', separator = undefined) =>
+      (!text)
+        ? console.warn('No ingresaste el texto')
+        : (separator === undefined)
+          ? console.warn('No ingresaste el separador')
+          : console.info(text.split(separator));
+    textArray();
+    textArray("Hello new world");
+    textArray('', ' ');
+    textArray("Hello new world", ' ');
+
+    // Ejercicio 4
+    // Función que repita el texto X veces
+    const repeatText = (text = '', times = undefined) =>
+      (!text)
+        ? console.warn('No ingresaste el texto')
+        : (times === undefined)
+          ? console.warn('No ingresaste el número de veces')
+          : console.info(text.repeat(times));
+    repeatText();
+    repeatText("Hello world");
+    repeatText('', 9);
+    repeatText("Hello world ", 5);
+
+    // Ejercicio 4-2
+    const repeatText2 = (text = '', times = undefined) => {
+      if (!text) return console.warn('No ingresaste el texto');
+      if (times === undefined) return console.warn('No ingresaste el número de veces');
+      if (times === 0) return console.error('El número de veces no puede ser 0');
+      if (Math.sign(times) === -1) return console.error('El número de veces no puede ser negativo');
+
+      // return console.info(text.repeat(times));
+      for (let i = 1; i <= times; i++) console.info(`${text}, ${i}`);
+    }
+    repeatText2('', 5);
+    repeatText2("Hello world");
+    repeatText2("Hello world", 0);
+    repeatText2("Hello world", -1);
+    repeatText2("Hello world", 5);
+  </script>
+</body>
+</html>

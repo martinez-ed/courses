@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objeto Console</title>
+</head>
+<body>
+  <h1>Objeto Console</h1>
+  <script>
+    // Objeto Console
+    console.log(console);
+    console.error('Esto es un error');
+    console.warn('Esto es una advertencia');
+    console.info('Esto es información');
+    console.debug('Esto es una depuración');
+    // console.clear();
+    console.table({nombre: 'Ed', apellido: 'Martínez'});
+    // console.count('Ed');
+    // console.log(window);
+    console.log(document);
+    // console.log(navigator);
+    // console.log(location);
+    // console.log(history);
+    // console.log(screen);
+    // console.log(localStorage);
+
+    console.dir(document);
+
+    console.groupCollapsed('Primer grupo');
+    console.log('Esto es un log dentro del grupo');
+    console.log('Esto es otro log dentro del grupo');
+    console.groupEnd();
+
+    console.table(Object.entries(console).sort());
+
+    let nombre = 'Ed',
+        apellido = 'Martínez',
+        edad = 28;
+
+    // Example 1
+    console.log(nombre, apellido, edad);
+    
+    // Example 2
+    console.log(`Hola, me llamo ${nombre} ${apellido} y tengo ${edad} años`);
+
+    // Example 3
+    console.log(`Hola, me llamo %s %s y tengo %d años`, nombre, apellido, edad);
+
+    // Example 4
+    const numeros = [1, 2, 3, 4, 5],
+          vocales = ['a', 'e', 'i', 'o', 'u'];
+
+    console.table(numeros);
+    console.table(vocales);
+
+    // Example 5
+    const persona = {
+      nombre: 'Ed',
+      apellido: 'Martínez',
+      edad: 28
+    };
+
+    console.table(persona);
+
+    // Example 6 - Console Time
+    console.time('Contador');
+    const array = Array(1000).fill(0);
+
+    for (let i = 0; i < array.length; i++) {
+      array[i] = i;
+    }
+
+    console.timeEnd('Contador');
+  </script>
+</body>
+</html>

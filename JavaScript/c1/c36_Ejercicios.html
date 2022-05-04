@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training</title>
+</head>
+
+<body>
+  <h1>Training</h1>
+  <script>
+    // Ejercicio 6
+    // Función que invierta las palabras de una cadena de texto
+    const reverseWords = (str = '') =>
+      (!str)
+        ? console.warn('No se ha introducido ningún texto')
+        : console.info(str.split('').reverse().join(' '));
+    reverseWords();
+    reverseWords('Edwin Martínez Moreno');
+
+    // Ejercicio 2
+    // Función para contar el número de veces que se repite una palabra en una cadena de texto
+    /* const countWords = (str = '', word = '') =>
+      (!str)
+        ? console.warn('No se ha introducido ningún texto')
+        : console.info(`La palabra "${word}" se repite ${str.split(' ').filter(w => w === word).length} veces`);
+    countWords();
+    countWords('Hola mundo nuevo mundo y pequeño mundo del mundo', 'mundo'); */
+
+    // Ejercicio 6-b
+    const countWords2 = (str = '', word = '') => {
+      if (!str) return console.warn('No se ha introducido ningún texto');
+      if (!word) return console.warn('No se ha introducido ninguna palabra');
+
+      const words = str.split(' ');
+      let count = 0;
+      for (let i = 0; i < words.length; i++) {
+        if (words[i] === word) {
+          count++;
+        }
+      }
+      console.info(`La palabra "${word}" se repite ${count} veces`);
+    };
+    countWords2();
+    countWords2('Hola mundo nuevo');
+    countWords2('Hola mundo nuevo mundo y pequeño mundo del mundo para mi mundo', 'mundo');
+
+    // Ejercicio 7
+    // Función que valida si una palabra o frase es un palíndromo
+    const isPalindrome = (str = '') => {
+      if (!str) return console.warn('No se ha introducido ningún texto');
+      const str2 = str.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+      const str3 = str2.split('').reverse().join('');
+      return (str2 === str3)
+        ? console.info(`La palabra "${str}" es un palíndromo`)
+        : console.info(`La palabra "${str}" no es un palíndromo`);
+    };
+    isPalindrome();
+    isPalindrome('Hola nuevo mundo');
+    isPalindrome('Kavak');
+
+    // Ejercicio 8
+    // Función que elimina cierto patrón de caracteres de una cadena
+    const removePattern = (str = '', pattern = '') => {
+      if (!str) return console.warn('No se ha introducido ningún texto');
+      if (!pattern) return console.warn('No se ha introducido ningún patrón');
+      const str2 = str.replace(new RegExp(pattern, 'ig'), '');
+      console.info(`Nuevo patrón: ${str2}`);
+    };
+    removePattern();
+    removePattern('Hola nuevo mundo');
+    removePattern('Hola nuevo mundo', 'o');
+    removePattern('xyz1, De2, sdfSz3, z4Ddf, xyz50dfd1', '[a-z]');
+  </script>
+</body>
+
+</html>

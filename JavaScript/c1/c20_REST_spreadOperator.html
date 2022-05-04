@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REST & Spread Operator</title>
+</head>
+<body>
+  <h1>REST & Spread Operator</h1>
+  <script>
+    // REST
+    function add(a, b, ...rest) {
+      let total = a + b;
+
+      rest.forEach(function(num) {
+        total += num;
+      });
+      return total;
+    }
+    console.log(add(1, 2));
+    console.log(add(1, 2, 3));
+    console.log(add(1, 2, 3, 4));
+    console.log(add(10,20,34,45,56,67,78,89,90));
+
+    // Spread operator
+    const numbers = [1, 2, 3, 4, 5],
+          numbers2 = [10, 20, 30, 40, 50];
+    console.log(numbers, numbers2);
+
+    const newNumbers = [...numbers, ...numbers2];
+    console.log(newNumbers);
+  </script>
+</body>
+</html>

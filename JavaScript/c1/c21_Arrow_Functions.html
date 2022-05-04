@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrow Functions</title>
+</head>
+
+<body>
+  <h1>Arrow Functions</h1>
+  <script>
+    // Función expresada
+    const suma = function (a, b) {
+      return a + b;
+    };
+    console.log(suma(1, 2));
+
+    // Función declarada
+    function resta(a, b) {
+      return a - b;
+    }
+    console.log(resta(1, 2));
+
+    // Arrow function one-line
+    const suma2 = (a, b) => a + b;
+    console.log(suma2(1, 2));
+
+    // Arrow function
+    const resta2 = (a, b) => {
+      return a - b;
+    };
+    console.log(resta2(1, 2));
+
+    // Iterar un array con arrow function
+    const array = [1, 2, 3, 4, 5];
+    array.forEach((element, index) => {
+      console.log(`${element} esta en la posición ${index}`);
+    });
+
+    // Arrow function con this
+    const obj = {
+      name: 'Juan Pérez',
+      saludar: function () {
+        const saludar = () => {
+          console.log(`Hola, soy ${this.name}`);
+        };
+        saludar();
+      }
+    };
+    obj.saludar();
+  </script>
+</body>
+
+</html>

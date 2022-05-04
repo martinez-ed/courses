@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training 43</title>
+</head>
+<body>
+  <h1>Training 43</h1>
+  <script>
+    // Ejercicio 24
+    // Programar una clase llamada Movie, que reciba un objeto al momento de instanciarse con los siguientes datos: id en www.imdb.com, titulo, director, año de estreno, pais o paises de origen, género o géneros, calificación IMDB.
+    // Validaciones:
+    // - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 7 restantes números.
+    // - Valida que el título no rebase los 100 caracteres.
+    // - Valida que el director no rebase los 50 caracteres.
+    // - Valida que el año de estreno se un número entero de 4 dígitos.
+    // - Valida que el país o paises de origen sea introducido en formato de array.
+    // - Valida que el género o géneros introducidos esten dentro de los géneros aceptados.
+    // - Crea un método estático que devuelva los géneros aceptados.
+    // - Valida que la calificación IMDB sea un número entre 0 y 10, pudiendo ser decimal de una cifra.
+    // - Crea un método que devuelva toda la ficha técnica de la película.
+    // - A partir de un array con la información de 3 películas, genera 3 instancias de la clase Movie de forma automatizada e imprime la ficha técnica de cada una.
+
+    // Géneros aceptados wwww.imdb.com/genre/: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary, Drama, Family, Fantasy, Film-Noir, Game-Show, History, Horror, Music, Musical, Mystery, News, Sci-Fi, Sport, Thriller, War, Western.
+
+    // Construir la clase Movie
+    class Movie {
+      constructor(id, titulo, director, estreno, paises, generos, calificacion) {
+        this.id = id;
+        this.titulo = titulo;
+        this.director = director;
+        this.estreno = estreno;
+        this.paises = paises;
+        this.generos = generos;
+        this.calificacion = calificacion;
+
+        this.validarId(id);
+        this.validarTitulo(titulo);
+        this.validarDirector(director);
+        this.validarEstreno(estreno);
+        this.validarPaises(paises);
+        this.validarGeneros(generos);
+        this.validarCalificacion(calificacion);
+      }
+      // Atributo estáticos
+      static get listaGeneros() {
+        // Géneros aceptados www.imdb.com/genre/: 
+        return ['Action', 'Adult', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'Film-Noir', 'Game-Show', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'News', 'Sci-Fi', 'Sport', 'Thriller', 'War', 'Western'];
+      }
+      // Métodos estáticos
+      static generosAceptados() {
+        return console.info(`Los géneros aceptados son: ${Movie.listaGeneros.join(', ')}`);
+      }
+
+      // VALIDACIONES GENERALES --------------------------------------------------
+      // Validar Strings
+      validarString(propiedad, valor) {
+        if (!valor) return console.warn(`${propiedad} "${valor}" no puede estar vacío`);
+        if (typeof valor !== 'string') return console.error(`${propiedad} "${valor}" no es una cadena de texto`);
+
+        return true;
+      }
+      // Validar longitudes
+      validarLongitud(propiedad, valor, longitud) {
+        if (valor.length > longitud) return console.error(`${propiedad} "${valor}" no puede tener más de ${longitud} caracteres`);
+
+        return true;
+      }
+      // Validar Números
+      validarNumero(propiedad, valor) {
+        if (!valor) return console.warn(`${propiedad} "${valor}" no puede estar vacío`);
+        if (typeof valor !== 'number') return console.error(`${propiedad} "${valor}" no es un número`);
+
+        return true;
+      }
+      // Validar Arrays
+      validarArray(propiedad, valor) {
+        if (!valor) return console.warn(`${propiedad} "${valor}" no puede estar vacío`);
+        if (!(valor instanceof Array)) return console.error(`${propiedad} "${valor}" no es un array`);
+        if (valor.length === 0) return console.error(`${propiedad} "${valor}" no tiene datos`);
+        for (let str of valor) {
+          if (typeof str !== 'string') return console.error(`${propiedad} "${valor}" no es una cadena de texto`);
+        }
+
+        return true;
+      }
+
+      // VALIDACIONES ESPECÍFICAS --------------------------------------------------
+      // Validar ID
+      validarId(id) {
+        if (this.validarString('IMDB id', id))
+          if (!(/^[a-zA-Z]{2}[0-9]{7}$/.test(id)))
+            return console.error(`El ID IMDB "${id}" no tiene el formato correcto`);
+      }
+      // Validar Titulo
+      validarTitulo(titulo) {
+        if (this.validarString('Título', titulo))
+          this.validarLongitud('Título', titulo, 100);
+      }
+      // Validar Director
+      validarDirector(director) {
+        if (this.validarString('Director', director))
+          this.validarLongitud('Director', director, 50);
+      }
+      // Validar Estreno
+      validarEstreno(estreno) {
+        if (this.validarNumero('Año de estreno', estreno))
+          if (!(/^[0-9]{4}$/.test(estreno)))
+            return console.error(`El año de estreno "${estreno}" no tiene el formato correcto`);
+      }
+      // Validar Paises
+      validarPaises(paises) {
+        this.validarArray('Paises', paises);
+      }
+      // Validar Generos
+      validarGeneros(generos) {
+        this.validarArray('Géneros', generos);
+        for (let genero of generos) {
+          if (!Movie.listaGeneros.includes(genero)) {
+            console.error(`El género "${genero}" no está dentro de los géneros aceptados`);
+            Movie.generosAceptados();
+          }
+        }
+      }
+      // Validar Calificacion
+      validarCalificacion(calificacion) {
+        if (this.validarNumero('Calificación IMDB', calificacion))
+          return (calificacion < 0 || calificacion > 10) 
+            ? console.error(`La calificación IMDB "${calificacion}" no está dentro del rango de 0 a 10`) 
+            : this.calificacion = calificacion.toFixed(1);
+      }
+      // Devolver Ficha Tecnica
+      fichaTecnica() {
+        return `
+          ID IMDB: ${this.id}
+          Título: ${this.titulo}
+          Director: ${this.director}
+          Año de estreno: ${this.estreno}
+          Paises: ${this.paises}
+          Género o géneros: ${this.generos}
+          Calificación IMDB: ${this.calificacion}
+        `;
+      }
+    } // Fin de la clase Movie
+
+    // Array con 3 películas
+    let peliculas = [
+      new Movie('tt0111161', 'The Shawshank Redemption', 'Frank Darabont', 1994, ['USA', 'UK'], ['Crime', 'Drama'], 7.3),
+      new Movie('tt0068646', 'The Godfather', 'Francis Ford Coppola', 1972, ['USA', 'UK'], ['Crime', 'Drama'], 9.64),
+      new Movie('tt1375666', 'Inception', 'Christopher Nolan', 2010, ['USA', 'UK'], ['Action', 'Adventure', 'Sci-Fi'], 8.88)
+    ];
+
+    // Imprimir fichas técnicas de las películas
+    for (let pelicula of peliculas) {
+      console.log(pelicula.fichaTecnica());
+    }
+  </script>
+</body>
+</html>

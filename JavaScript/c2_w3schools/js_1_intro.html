@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get element by id</title>
+</head>
+<body>
+  <h1>"getElementById"</h1>
+  <h2>What can JavaScript can do?</h2>
+  <p id="demo">JavaScript can change HTML content.</p>
+  <p id="demo2"></p>
+  <button type="button" onclick="document.getElementById('demo').innerHTML = 'Hello JavaScript!'">Click Me!</button>
+  <button type="button" onclick="myFunction()">Try it</button>
+  <button type="button" onclick="myFunction2()">New change</button>
+  <button type="button" onclick="myFunction3()">Print the page</button>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("demo");
+      x.innerHTML = "Paragraph changed...";
+    }
+  </script>
+  <script src="./files/js_1.js"></script>
+  <!-- Using window.alert() -->
+  <script>alert(3 + 8);</script>
+  <!-- Using console.log() -->
+  <script>console.log(3 + 8);</script>
+  <!-- Using window.print() -->
+  <script>
+    function myFunction3() {
+      window.print();
+    }
+  </script>
+</body>
+</html>

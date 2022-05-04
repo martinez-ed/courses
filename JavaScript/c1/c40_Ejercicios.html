@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training 40</title>
+</head>
+<body>
+  <h1>Training 40</h1>
+  <script>
+    // Ejercicio 18
+    // Función que dada una cadena de texto, cuente en número de vocales y consonantes
+    const countLetters = (text = '') => {
+      if (!text) return console.warn('No se ha introducido ningún texto');
+      if (typeof text !== 'string') return console.error('El texto introducido no es una cadena de texto');
+
+      let vowels = 0,
+          consonants = 0;
+
+      for (let letter of text) {
+        if (/[aeiouáéíóú]/i.test(letter)) vowels++;
+        else if (/[bcdfghjklmnñpqrstvwxyz]/i.test(letter)) consonants++;
+      }
+
+      return console.info({
+        text,
+        vowels,
+        consonants
+      });
+    };
+    countLetters('Hola');
+    countLetters('Hola Mundo');
+    countLetters('Hola Mundo, ¿Qué tal?');
+    console.log('\n');
+
+    // Ejercicio 19
+    // Función que valide que un texto sea un nombre válido
+    const validateName = (name = '') => {
+      if (!name) return console.warn('No se ha introducido ningún texto');
+      if (typeof name !== 'string') return console.error(`El valor "${name}" ingresado, NO es una cadena de texto`);
+    
+      let expReg = /^[a-záéíóúñ\s]+$/ig.test(name);
+
+      return (expReg) 
+        ? console.info(`El nombre "${name}" es válido`) 
+        : console.warn(`El nombre "${name}" NO es válido`);
+    };
+    validateName();
+    validateName(3);
+    validateName('Edwin');
+    validateName('Edwin Martínez');
+    validateName('Edwin Martínez,l');
+    validateName('Edwin Martínez Moreno');
+    console.log('\n');
+
+    // Ejercicio 20
+    // Función que valide que un texto sea una dirección de correo electrónico válida
+    const validateEmail = (email = '') => {
+      if (!email) return console.warn('No se ha introducido ningún texto');
+      if (typeof email !== 'string') return console.error(`El valor "${email}" ingresado, NO es una cadena de texto`);
+    
+      let expReg = /^[a-z0-9\._-]+@[a-z0-9-]{2,}[.][a-z]{2,3}$/i.test(email);
+
+      return (expReg) 
+        ? console.info(`El email "${email}" es válido`) 
+        : console.warn(`El email "${email}" NO es válido`);
+    };
+    validateEmail();
+    validateEmail(34);
+    validateEmail('emm@jausy')
+    validateEmail('emm@jausy.come')
+    validateEmail('emm@jausy.com')
+  </script>
+</body>
+</html>

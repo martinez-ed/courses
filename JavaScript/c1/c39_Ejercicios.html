@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training 39</title>
+</head>
+<body>
+  <h1>Training 39</h1>
+  <script>
+    // Ejercicio 15
+    // Función para convertir números de base binaria a decimal y viceversa
+    const convertBase = (num = undefined, type = undefined) => {
+      if (num === undefined) return console.warn('No se ha ingresado un número');
+      if (typeof num !== 'number') return console.error(`El valor "${num}" ingresado NO es un número`);
+      if (type === undefined) return console.warn('No se ha ingresado la base a convertir');
+      if (type !== 2 && type !== 10) return console.error(`El valor "${type}" ingresado NO es una unidad de base válida`);
+
+      if (type === 2) {
+        return console.info(`${num} base ${type} = ${parseInt(num, type)} base 10`);
+      } else {
+        return console.info(`${num} base ${type} = ${num.toString(type)} base 2`);
+      }
+    };
+    convertBase();
+    convertBase('2');
+    convertBase(2);
+    convertBase(100, '2');
+    convertBase(100, 2);
+    convertBase(1110010, 2);
+    convertBase(4, 10);
+    convertBase(114, 10);
+    convertBase(114, 3);
+    console.log('\n');
+
+    // Ejercicio 16
+    // Función que devuelve el monto final después de aplicar el descuento
+    const applyDiscount = (price = undefined, discount = 0) => {
+      if (price === undefined) return console.warn('No se ha ingresado un precio');
+      if (typeof price !== 'number') return console.error(`El valor "${price}" ingresado NO es un número`);
+      if (discount === undefined) return console.warn('No se ha ingresado un descuento');
+      if (typeof discount !== 'number') return console.error(`El valor "${discount}" ingresado NO es un número`);
+      if (discount < 0 || discount > 100) return console.error(`El valor "${discount}" ingresado NO es un descuento válido`);
+
+      return console.info(`Price ${price}USD - (discount ${discount}%) = Final price ${price - (price * discount / 100)}USD`);
+    };
+    applyDiscount();
+    applyDiscount(100);
+    applyDiscount(100, -10);
+    applyDiscount(100, 110);
+    applyDiscount(100, '15');
+    applyDiscount(1000, 20);
+    console.log('\n');
+
+    // Ejercicio 17
+    // Función que dada una fecha  válida, determine cuantos años han pasado desde esa fecha
+    const yearsSince = (date = undefined) => {
+      if (date === undefined) return console.warn('No se ha ingresado una fecha');
+      if (!(date instanceof Date)) return console.error(`El valor "${date}" NO es una fecha válida`);
+
+      let today = new Date().getTime() - date.getTime(),
+        years = Math.floor(today / (1000 * 60 * 60 * 24 * 365));
+
+      return (Math.sign(years) === -1) 
+        ? console.info(`Faltan ${Math.abs(years)} años para el ${date.getFullYear()}.`)
+        : (years === 0)
+          ? console.info(`Estamos en el año ${date.getFullYear()} en la actualidad.`)
+          : console.info(`Han pasado ${years} años desde ${date.getFullYear()}.`);
+    };
+    yearsSince();
+    yearsSince({});
+    yearsSince(false);
+    yearsSince(new Date());
+    yearsSince(new Date('1984-04-23'));
+    yearsSince(new Date('1884-04-23'));
+    yearsSince(new Date('2084-04-23'));
+    yearsSince(new Date('2084,4,23'));
+  </script>
+</body>
+</html>

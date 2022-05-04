@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbols</title>
+</head>
+<body>
+    <h1>Nuevos tipos de datos</h1>
+    <h2>Symbols</h2>
+    <script>
+        let id1 = Symbol('id1');
+        let id2 = Symbol('id2');
+
+        console.log('1', id1 === id2);
+        console.log('2', id1, id2);
+        console.log('3', typeof id1, typeof id2);
+
+        const NAME = Symbol('name');
+        const PHONE = Symbol('phone');
+
+        const user = {
+            [NAME]: 'First_name', // "NAME" Private symbol
+            lastName: 'Martínez'
+        };
+        console.log('4', user);
+        console.log('5', user[NAME]);
+        console.log('6', user.lastName);
+
+        user.NOMBRE = 'Martínez Ed';
+        console.log('7', user);
+        console.log('8', user.NOMBRE);
+        console.log('9', user[NAME]); // Propiedad privada
+
+        user[PHONE] = function () {
+            console.log('10', 'teléfono');
+        }
+        console.log('11', user);
+        user[PHONE]();
+
+        for (let property in user) {
+            console.log('12', property);
+            console.log('13', user[property]);
+        }
+        
+        console.log('14', Object.getOwnPropertySymbols(user));
+    </script>
+</body>
+</html>

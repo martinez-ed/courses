@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training 38</title>
+</head>
+<body>
+  <h1>Training 38</h1>
+  <script>
+    // Ejercicio 12
+    // Función que reciba un número y evalúe si es primo o no
+    const isPrime = (num = undefined) => {
+      if (num === undefined) return console.warn('No se ha ingresado un número');
+      if (typeof num !== 'number') return console.error(`El valor "${num}" ingresado NO es un número`);
+      if (num < 0) return console.error(`El valor "${num}" ingresado NO es un número positivo`);
+      if (num === 0) return console.error('El número no puede ser 0');
+      if (num === 1) return console.error('El número no puede ser 1');
+
+      let result = true;
+      for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+          result = false;
+          break;
+        }
+      }
+      return console.info(`El número ${num} ${result ? 'es' : 'NO es'} primo`);
+    };
+    isPrime();
+    isPrime('5');
+    isPrime(-5)
+    isPrime(0);
+    isPrime(1);
+    isPrime(13);
+    isPrime(200);
+
+    // Ejercicio 13
+    // Función que reciba un número y evalúe si es par o impar
+    const isEven = (num = undefined) => {
+      if (num === undefined) return console.warn('No se ha ingresado un número');
+      if (typeof num !== 'number') return console.error(`El valor "${num}" ingresado NO es un número`);
+
+      return console.info(`El número ${num} ${num % 2 === 0 ? 'es' : 'NO es'} par`);
+    };
+    isEven();
+    isEven('5');
+    isEven(0);
+    isEven(-5)
+    isEven(13);
+    isEven(12);
+
+    // Ejercicio 14
+    // Función para convertir grados Celsius a Fahrenheit y viceversa
+    const convertDegrees = (num = undefined, type = undefined) => {
+      if (num === undefined) return console.warn('No se ha ingresado un número');
+      if (typeof num !== 'number') return console.error(`El valor "${num}" ingresado NO es un número`);
+      if (type === undefined) return console.warn('No se ha ingresado la unidad de temperatura a convertir');
+      if (type.length !== 1 || !['C', 'c', 'F', 'f'].includes(type)) return console.warn(`El valor "${type}" NO es una unidad de temperatura válida`);
+
+      if (type === 'C') {
+        return console.info(`${num}°C = ${Math.round((num * 9 / 5) + 32)}°F`);
+      } else {
+        return console.info(`${num}°F = ${Math.round((num - 32) * 5 / 9)}°C`);
+      }
+    };
+    convertDegrees();
+    convertDegrees('5');
+    convertDegrees(-5)
+    convertDegrees(-5, 'C');
+    convertDegrees(23, 'F');
+    convertDegrees(0, 'f');
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Literal Objects</title>
+</head>
+<body>
+  <h1>Literal Objects</h1>
+  <script>
+    let name = 'Ed',
+        age = '27';
+
+    const person = {
+      name: name,
+      age: age,
+      skills : function() {
+        console.log(`${this.name} knows JavaScript`);
+      }
+    };
+    console.log(person);
+    person.skills();
+
+    // New literal object syntax
+    const person2 = {
+      name,
+      age,
+      skills() {
+        console.log(`${this.name} knows MERN`);
+      }
+    };  
+    console.log(person2);
+    person2.skills();
+
+  </script>
+</body>
+</html>

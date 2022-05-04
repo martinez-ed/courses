@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training 41</title>
+</head>
+<body>
+  <h1>Training 41</h1>
+  <script>
+    // Ejercicio 21
+    // Función que dado un array numérico devuelva otro array con los números elevados al cuadrado
+    const squareNumbers = (numbers = undefined) => {
+      if (numbers === undefined) return console.warn('No se ha introducido ningún array');
+      if (!Array.isArray(numbers)) return console.error('El valor introducido, NO es un array');
+      if (numbers.length === 0) return console.warn('El array introducido está vacío');
+
+      let squaredNumbers = [];
+
+      for (let num of numbers) {
+        if (typeof num !== 'number') return console.error(`El valor "${num}" introducido, NO es un número`);
+        squaredNumbers.push(num ** 2);
+      }
+
+      return console.info(`Array original: ${numbers},\nArray elevado al cuadrado: ${squaredNumbers}`);
+    };
+    squareNumbers();
+    squareNumbers(3);
+    squareNumbers([]);
+    squareNumbers([1, 2, '3']);
+    squareNumbers([99, 77, 88, 44]);
+    console.log('\n');
+
+    // Ejercicio 22
+    // Función que dado un array devuelva el número mas alto y el número mas bajo
+    const highestAndLowest = (numbers = undefined) => {
+      if (numbers === undefined) return console.warn('No se ha introducido ningún array');
+      if (!Array.isArray(numbers)) return console.error('El valor introducido, NO es un array');
+      if (numbers.length === 0) return console.warn('El array introducido está vacío');
+
+      let highest = numbers[0];
+      let lowest = numbers[0];
+
+      for (let num of numbers) {
+        if (typeof num !== 'number') return console.error(`El valor "${num}" introducido, NO es un número`);
+        if (num > highest) highest = num;
+        if (num < lowest) lowest = num;
+      }
+
+      return console.info(`Array original: ${numbers}\nNúmero más alto: ${highest}\nNúmero más bajo: ${lowest}`);
+    };
+    highestAndLowest();
+    highestAndLowest(3);
+    highestAndLowest([]);
+    highestAndLowest([1, 2, '3']);
+    highestAndLowest([99, 77, 43, -44]);
+    console.log('\n');
+
+    // Ejercicio 23
+    // Función que dado un array de números, devuelva un objeto con 2 arreglos: uno con los números pares y otro con los números impares
+    const getPairsAndOdds = (numbers = undefined) => {
+      if (numbers === undefined) return console.warn('No se ha introducido ningún array');
+      if (!Array.isArray(numbers)) return console.error('El valor introducido, NO es un array');
+      if (numbers.length === 0) return console.warn('El array introducido está vacío');
+
+      let pairs = [],
+        odds = [];
+
+      for (let num of numbers) {
+        if (typeof num !== 'number') return console.error(`El valor "${num}" introducido, NO es un número`);
+        if (num % 2 === 0) pairs.push(num);
+        else odds.push(num);
+      }
+
+      return console.info(`Array original: ${numbers}\nArray pares: ${pairs}\nArray impares: ${odds}`);
+    };
+    getPairsAndOdds();
+    getPairsAndOdds(3);
+    getPairsAndOdds([]);
+    getPairsAndOdds([1, 2, '3']);
+    getPairsAndOdds([99, 77, 88, 44]);
+    console.log('\n');
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funciones anónimas autoejecutables</title>
+</head>
+<body>
+  <h1>Funciones anónimas autoejecutables</h1>
+  <script>
+    // Funciones anónimas autoejecutables
+    // Son funciones que se ejecutan en el momento en el que se declaran
+    // No se pueden pasar como parámetros a otras funciones
+
+    (function(d,w,c) {
+      console.log('Función anónima autoejecutable IIFE - Dos');
+      console.log(d);
+      console.log(w);
+      c.log('Éste es un console.log');
+    })(document, window, console);
+
+    // Versión Clásica
+    (function () {
+      console.log('Versíon clásica')
+    })();
+
+    // Versión Crockford (JvaScript The Good Parts)
+    ((function () {
+      console.log('Versíon Crockford')
+    })());
+
+    // Versión Unaria
+    +function () {
+      console.log('Versíon Unaria')
+    }();
+
+    // Versión Facebook
+    !function () {
+      console.log('Versíon Facebook')
+    }();
+    
+    // Versión ECMAScript 6
+    // (() => {
+    //   console.log('Versíon ECMAScript 6')
+    // })();
+  </script>
+</body>
+</html>

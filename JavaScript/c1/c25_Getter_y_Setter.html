@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métodos estáticos, getter y setter</title>
+</head>
+<body>
+  <h1>Métodos estáticos, Getter y Setter</h1>
+  <script>
+    class Persona {
+      // Constructor de la clase es un método que se ejecuta al crear una instancia de la clase
+      constructor(nombre, apellido, altura) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.altura = null;
+      }
+
+      // MÉTODO ESTÁTICO 
+      // Se pueden ejecutar sin necesidad de instanciar la clase
+      static saludo() {
+        console.log('Hola, soy un método estático');
+      }
+    
+      // MÉTODOS DE LA CLASE
+      saludar() {
+        console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y mido ${this.altura}`);
+      }
+
+      // GETTER Y SETTER son métodos especiales que permiten establecer y obtener los valores de atributos de una clase
+      
+      // GET
+      get getAltura() {
+        return this.altura;
+      }
+
+      // SET
+      set setAltura(altura) {
+        this.altura = altura;
+      }
+    }
+
+    // Instanciar la clase
+    let persona1 = new Persona('Ed', 'Martínez'),
+        persona2 = new Persona('Pedro', 'Gómez', 1.70);
+
+    // Métodos estáticos
+    Persona.saludo();
+
+    // Métodos de la clase
+    console.log(persona1);
+    persona1.setAltura = 1.84;
+    persona1.saludar();
+    console.log(persona1.getAltura);
+
+    console.log(persona2);
+    persona2.setAltura = 1.74;
+    persona2.saludar();
+    console.log(persona2.getAltura);
+  </script>
+</body>
+</html>

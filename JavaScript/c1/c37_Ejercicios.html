@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training 37</title>
+</head>
+<body>
+  <h1>Training 37</h1>
+  <script>
+    // Ejercicio 9
+    // Función que obtiene número aleatorio entre 501 y 600
+    const getRandomNumber = () => 
+      Math.floor(Math.random() * 100) + 500;
+    console.log(`Número 1: ${getRandomNumber()}`);
+    console.log(`Número 2: ${getRandomNumber()}`);
+
+    // Ejercicio 10
+    // Función que reciba un número y evalúe si es capicúa o no
+    const isCapicua = (num = 0) => {
+      if (!num) return console.warn('No se ha ingresado un número');
+      if (typeof num !== 'number') return console.error(`El valor "${num}" ingresado NO es un número`);
+      
+      let numStr = num.toString();
+      let numStrReverse = numStr.split('').reverse().join('');
+      return numStr === numStrReverse
+        ? `El número ${num} es capicúa`
+        : `El número ${num} no es capicúa`;
+    };
+    console.log(isCapicua(12321));
+    console.log(isCapicua(1234));
+
+    // Ejercicio 11
+    // Función que calcula el factorial de un número
+    const factorial = (num = undefined) => {
+      if (num === undefined) return console.warn('No se ha ingresado un número');
+      if (typeof num !== 'number') return console.error(`El valor "${num}" ingresado NO es un número`);
+      if (num < 0) return console.error(`El valor "${num}" ingresado NO es un número positivo`);
+      if (num === 0) return console.error('El número no puede ser 0');
+
+      let result = 1;
+      for (let i = num; i > 1; i--) {
+        result *= i;
+      }
+      return console.info(`El factorial de ${num} es ${result}`);
+    }
+    factorial();
+    factorial('5');
+    factorial(0);
+    factorial(-5);
+    factorial(5);
+    factorial(8);
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expresiones Regulares</title>
+</head>
+<body>
+  <h1>Expresiones Regulares</h1>
+  <script>
+    // Regular expressions
+    // Son una serie de caracteres que sirven para buscar patrones en una cadena de texto
+    
+    let text = 'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam. lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam. 9';
+
+    // Forma 1
+    let regex = new RegExp('sit');
+
+    // Forma 2 (with flags)
+    let regex2 = /sit{1,}/gi;
+
+    // Formas de buscar
+    console.log(regex.test(text));
+    console.log(regex.exec(text));
+
+    // 1. Buscar una palabra
+    let regex3 = /lorem/gi;
+    console.log(regex3.test(text));
+
+    // 2. Buscar una palabra con una longitud determinada
+    let regex4 = /lorem{4}/gi;
+    console.log(regex4.test(text));
+
+    // 3. Buscar un número
+    let regex5 = /\d/gi;
+    console.log(regex5.test(text));
+
+    // 4. Buscar una letra
+    let regex6 = /[a-z]/gi;
+    console.log(regex6.test(text));
+
+    // 5. Buscar una letra o un número
+    let regex7 = /[a-z0-9]/gi;
+    console.log(regex7.test(text));
+
+    // 6. Buscar una letra o un número o un espacio
+    let regex8 = /[a-z0-9\s]/gi;
+    console.log(regex8.test(text));
+  </script>
+</body>
+</html>
