@@ -20,3 +20,9 @@ console.log(car);
 car.year = '2018';
 console.log(car);
 
+// e.g. Function, calculate the product of two numbers:
+function multiply(a, b) {
+  return a * b;
+}
+let result = multiply(2, 3);
+console.log(result);
