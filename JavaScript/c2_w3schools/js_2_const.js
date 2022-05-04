@@ -33,3 +33,22 @@ function convertFtoC(f) {
 }
 let change = convertFtoC(32);
 console.log(change);
+
+// e.g. Object, create a new object:
+const person = {
+  firstName: 'John',
+  lastName: 'Doe',
+  age: 30,
+  eyeColor: 'blue'
+};
+console.log(person);
+// Access a property: object.property or object["property"]
+console.log(person.age);
+console.log(person["eyeColor"]);
+
+// Add a property like object method:
+person.fullName = function () {
+  return this.firstName + ' ' + this.lastName;
+}
+// Accesssing object method: object.method()
+console.log(person.fullName());
