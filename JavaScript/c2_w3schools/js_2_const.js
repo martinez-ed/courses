@@ -25,4 +25,4 @@ function multiply(a, b) {
   return a * b;
 }
 let result = multiply(2, 3);
-console.log(result);
+console.log('The result is: ' + result);
