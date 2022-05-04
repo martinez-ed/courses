@@ -26,3 +26,10 @@ function multiply(a, b) {
 }
 let result = multiply(2, 3);
 console.log('The result is: ' + result);
+
+// e.g. Function, convert Fahrenheit to Celsius:
+function convertFtoC(f) {
+  return (f - 32) * 5 / 9;
+}
+let change = convertFtoC(32);
+console.log(change);
