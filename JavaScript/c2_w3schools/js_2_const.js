@@ -52,3 +52,15 @@ person.fullName = function () {
 }
 // Accesssing object method: object.method()
 console.log(person.fullName());
+
+
+// Operators
+// e.g. Addition:
+let x = 5;
+x += 12;
+console.log(x);
+
+// e.g. String operators:
+let text = 'What a very ';
+text += 'nice day!';
+console.log(text);
