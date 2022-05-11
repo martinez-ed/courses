@@ -1,0 +1,30 @@
+h1{
+    color: #ff006e;
+    text-align: center;
+}
+p{
+    color: #3a86ff;
+    background-color: #ffbe0b;
+    padding: 15px;
+    border: 10px solid #8338ec;
+    /* margin: 50px; */
+    
+    /* margin-top: 40px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px; */
+    
+    /* margin: 40px 15px 20px 10px; */
+
+    /* valor superior, valor derecha-izquierda, valor inferior */
+    /* margin: 40px 10px 20px; */
+
+    /* valor superior-inferior, valor derecha-izquierda */
+    /* margin: 40px 10px; */
+
+    /* centrar de manera horizontal */
+    margin: auto 30px;
+
+    /* centrar el texto */
+    text-align: center;
+}

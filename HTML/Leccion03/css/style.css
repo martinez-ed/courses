@@ -1,0 +1,21 @@
+h1 {
+    color: gray;
+    background-color: yellow;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+a:visited {
+    color: silver;
+    text-decoration: none;
+}
+a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+a:active {
+    color: chartreuse;
+    text-decoration: underline;
+}
