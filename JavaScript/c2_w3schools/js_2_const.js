@@ -66,5 +66,5 @@ text += 'nice day!';
 console.log(text);
 
 // Exponentiation
-let x = 5;
-let z = x**2;
+let y = 5;
+let z = y**2;
