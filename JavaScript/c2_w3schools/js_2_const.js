@@ -56,11 +56,15 @@ console.log(person.fullName());
 
 // Operators
 // e.g. Addition:
-let x = 5;
-x += 12;
+let x = 10;
+x += 38;
 console.log(x);
 
 // e.g. String operators:
 let text = 'What a very ';
 text += 'nice day!';
 console.log(text);
+
+// Exponentiation
+let y = 5;
+let z = y**2;
