@@ -1,3 +1,18 @@
+// Operators
+// e.g. Addition:
+let x = 10;
+x += 38;
+console.log(x);
+
+// e.g. String operators:
+let text = 'What a very ';
+text += 'nice day!';
+console.log(text);
+
+// Exponentiation
+let y = 5;
+let z = y**2;
+
 // Create an array:
 const cars = ["Saab", "Volvo", "BMW"];
 console.log(cars);
@@ -52,19 +67,3 @@ person.fullName = function () {
 }
 // Accesssing object method: object.method()
 console.log(person.fullName());
-
-
-// Operators
-// e.g. Addition:
-let x = 10;
-x += 38;
-console.log(x);
-
-// e.g. String operators:
-let text = 'What a very ';
-text += 'nice day!';
-console.log(text);
-
-// Exponentiation
-let y = 5;
-let z = y**2;
