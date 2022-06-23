@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js15_errors_try-catch</title>
+</head>
+<body>
+  <h1>js15_errors_try-catch</h1>
+  <h2>JavaScript Try Catch</h2>
+  <p>
+    Please imput a number between 1 and 10:
+  </p>
+  <input type="text" id="num">
+  <button type="button" onclick="myFunc()">
+    Test Number
+  </button>
+  <p id="message"></p>
+  <script>
+    function myFunc() {
+      const message = document.getElementById("message");
+      message.innerHTML = "";
+      let num = document.getElementById("num").value;
+      try {
+        if (num == "") throw "empty";
+        if (isNaN(num)) throw "not a number";
+        num = Number(num);
+        if (num < 5) throw "too low";
+        if (num > 10) throw "too high";
+      }
+      catch (err) {
+        message.innerHTML = "Input is " + err;
+      }
+    }
+  </script>
+</body>
+</html>
